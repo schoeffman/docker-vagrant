@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
   config.hostmanager.manage_host = true
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
-  config.hostmanager.aliases = %w(mobile.smgdigitaldev.com vagrant.smgdigitaldev.com)
+  config.hostmanager.aliases = %w(vmobile.smgdigitaldev.com vagrant.smgdigitaldev.com)
 
   #port mappings
   config.vm.network "forwarded_port", guest: 80, host: 80 
@@ -42,8 +42,8 @@ Vagrant.configure(2) do |config|
      d.run "nginx",
       image: "schoeffman/nginx",
       args: "-p 80:80 \
-             -v /vagrant/scripts/nginx.conf:/etc/nginx/nginx.conf \
-             -v /vagrant/scripts/sites-enabled:/etc/nginx/sites-enabled \
+             -v /vagrant/mobilefe/nginx/docker/nginx.conf:/etc/nginx/nginx.conf \
+             -v /vagrant/mobilefe/nginx/docker/sites-enabled:/etc/nginx/sites-enabled \
              --link grunt-server:grunt-server-link"
 
   end
